@@ -1,0 +1,377 @@
+<SettingsScreen>:
+  name0: name0
+  name1: name1
+  name2: name2
+  name3: name3
+  tai_value: tai_value
+  scenario0: scenario0
+  scenario1: scenario1
+  scenario2: scenario2
+  scenario3: scenario3
+  scenario4: scenario4
+
+  GridLayout:
+    cols:1
+    size_hint: None, None
+    size: root.width, root.height
+    padding: root.width*0.10, root.height*0.10
+
+    GridLayout:
+      cols:2
+      size_hint: None, None
+      size: root.width*0.80, root.height*0.20
+
+      Label:
+        text: "Names"
+
+      GridLayout:
+        rows: 4
+
+        TextInput:
+          id: name0
+          multiline:False
+          text: '1st name'
+        TextInput:
+          id: name1
+          multiline:False
+          text: '2nd name'
+        TextInput:
+          id: name2
+          multiline:False
+          text: '3rd name'
+        TextInput:
+          id: name3
+          multiline:False
+          text: '4th name'
+
+    GridLayout:
+      cols: 2
+      size_hint: None, None
+      size: root.width*0.80, root.height*0.05
+
+      Label:
+        text: "Value per Tai"
+
+      TextInput:
+        id: tai_value
+        multiline: False
+        text: '11'
+
+    GridLayout:
+      cols: 2
+      size_hint: None, None
+      size: root.width*0.80, root.height*0.25
+
+      GridLayout:
+        rows: 5
+
+        Label:
+          text: "Gang (Concealed)"
+        Label:
+          text: "Gang (Steal)"
+        Label:
+          text: "Gang (ZiMo)"
+        Label:
+          text: "4 Flowers Set"
+        Label:
+          text: "2 Animals Set"
+
+      GridLayout:
+        rows: 5
+
+        TextInput:
+          id: scenario0
+          multiline:False
+          text: '2'
+        TextInput:
+          id: scenario1
+          multiline:False
+          text: '1'
+        TextInput:
+          id: scenario2
+          multiline:False
+          text: '1'
+        TextInput:
+          id: scenario3
+          multiline:False
+          text: '2'
+        TextInput:
+          id: scenario4
+          multiline:False
+          text: '1'
+    AnchorLayout:
+      size_hint: None, None
+      size: root.width*0.80, root.height*0.10
+      anchor_x: 'center'
+      anchor_y: 'center'
+
+      Button:
+        text: "submit"
+        font_size: 20
+        on_press: root.submit()
+
+<MahjongGrid>:
+
+  n0: n0
+  n1: n1
+  n2: n2
+  n3: n3
+  m0: m0
+  m1: m1
+  m2: m2
+  m3: m3
+  tai_value: tai_value
+  s0: s0
+  s1: s1
+  s2: s2
+  s3: s3
+  s4: s4
+  w0: w0
+  w1: w1
+  w2: w2
+  w3: w3
+  l0: l0
+  l1: l1
+  l2: l2
+  l3: l3
+  t0: t0
+  t1: t1
+  t2: t2
+  t3: t3
+  t4: t4
+  t5: t5
+  t6: t6
+  tai1: tai1
+  tai2: tai2
+  tai3: tai3
+  tai4: tai4
+  tai5: tai5
+
+  on_enter: self.startup()
+
+  GridLayout:
+
+    cols:1
+    size_hint: None, None
+    size: root.width, root.height
+    padding: root.width*0.10, root.height*0.05
+    
+
+    Label:
+      size_hint: None, None
+      size: root.width*0.8, root.height*0.05
+      text: "Value of Tai"
+    Label:
+      size_hint: None, None
+      size: root.width*0.8, root.height*0.05
+      id: tai_value
+
+    GridLayout:
+      cols:5
+      col_default_width: root.width*0.16
+      col_force_default: True
+      size_hint: None, None
+      size: root.width*0.8, root.height*0.10
+
+      Label:
+        text: 'Gang (Concealed)'
+      Label:
+        text: 'Gang (Steal)'
+      Label:
+        text: 'Gang (Revealed)'
+      Label:
+        text: 'Flower Set'
+      Label:
+        text: 'Animal Set'
+
+      Label:
+        id:s0
+      Label:
+        id:s1
+      Label:
+        id:s2
+      Label:
+        id:s3
+      Label:
+        id:s4
+  
+    GridLayout:
+      cols:2
+      size_hint: None, None
+      size: root.width*0.8, root.height*0.20
+  
+      Label:
+        id: n0
+      Label:
+        id: m0
+        text: '0'
+  
+      Label:
+        id: n1
+      Label:
+        id: m1
+        text: '0'
+  
+      Label:
+        id: n2
+      Label:
+        id: m2
+        text: '0'
+  
+      Label:
+        id: n3
+      Label:
+        id: m3
+        text: '0'
+
+    GridLayout:
+      cols:4
+      size_hint: None, None
+      size: root.width*0.8, root.height*0.40
+
+      Label:
+        size_hint_y: None
+        height: root.height*0.05
+        text:'winner'
+      Label:
+        size_hint_y: None
+        height: root.height*0.05
+        text:'loser'
+      Label:
+        size_hint_y: None
+        height: root.height*0.05
+        text:'type'
+      Label:
+        size_hint_y: None
+        height: root.height*0.05
+        text:'tai'
+
+      BoxLayout:
+        orientation:'vertical'
+        ToggleButton:
+          id: w0
+          group: 'winner'
+          on_press: 
+            root.winner(0)
+        ToggleButton:
+          id: w1
+          group: 'winner'
+          on_press: 
+            root.winner(1)
+        ToggleButton:
+          id: w2
+          group: 'winner'
+          on_press: 
+            root.winner(2)
+        ToggleButton:
+          id: w3
+          group: 'winner'
+          on_press: 
+            root.winner(3)
+
+      BoxLayout:
+        orientation:'vertical'
+        ToggleButton:
+          group: 'loser'
+          id: l0
+          on_press:
+            root.loser(0)
+        ToggleButton:
+          group: 'loser'
+          id: l1
+          on_press:
+            root.loser(1)
+        ToggleButton:
+          group: 'loser'
+          id: l2
+          on_press:
+            root.loser(2)
+        ToggleButton:
+          group: 'loser'
+          id: l3
+          on_press:
+            root.loser(True)
+
+      BoxLayout:
+        orientation:'vertical'
+        ToggleButton:
+          group: 'type'
+          id: t0
+          text: 'hu'
+          on_press:
+            root.type(0)
+        ToggleButton:
+          group: 'type'
+          id: t1
+          text: 'Gang(Concealed)'
+          on_press:
+            root.type(1)
+        ToggleButton:
+          group: 'type'
+          id: t2
+          text: 'Gang (Steal)'
+          on_press:
+            root.type(2)
+        ToggleButton:
+          group: 'type'
+          id: t3
+          text: 'Gang (Revealed)'
+          on_press:
+            root.type(3)
+        ToggleButton:
+          group: 'type'
+          id: t4
+          text: 'Flower Set'
+          on_press:
+            root.type(4)
+        ToggleButton:
+          group: 'type'
+          id: t5
+          text: 'Animal Set'
+          on_press:
+            root.type(5)
+        ToggleButton:
+          group: 'type'
+          id: t6
+          text: 'Danger'
+          on_press:
+            root.type(6)
+
+      BoxLayout:
+        orientation:'vertical'
+        ToggleButton:
+          group: 'tai'
+          id: tai1
+          text: '1 tai'
+          on_press:
+            root.tai_set(1)
+        ToggleButton:
+          group: 'tai'
+          id: tai2
+          text: '2 tai'
+          on_press:
+            root.tai_set(2)
+        ToggleButton:
+          group: 'tai'
+          id: tai3
+          text: '3 tai'
+          on_press:
+            root.tai_set(3)
+        ToggleButton:
+          group: 'tai'
+          id: tai4
+          text: '4 tai'
+          on_press:
+            root.tai_set(4)
+        ToggleButton:
+          group: 'tai'
+          id: tai5
+          text: '5 tai'
+          on_press:
+            root.tai_set(5)
+
+    Button:
+      size_hint: None, None
+      size: root.width*0.8, root.height*0.10
+      text: 'confirm'
+      on_press: root.confirm()
